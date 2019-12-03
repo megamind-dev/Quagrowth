@@ -318,7 +318,7 @@ person on your team within minutes, NOT hours or days. </p>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script>
     $(document).ready(function() {
-
+      $('.navbar-dark .navbar-nav .nav-link').css('color', 'rgba(0,0,0,.5)');
       $(window).scroll(function() {
           // checks if window is scrolled more than 500px, adds/removes solid class
           if($(this).scrollTop() > 50) { 
@@ -353,7 +353,7 @@ person on your team within minutes, NOT hours or days. </p>
         })
 
         $('#resource-dropdown > a').click(function() {
-          $('#resource-dropdown > a').css('color', 'rgba(0,0,0,.5)')
+          // $('#resource-dropdown > a').css('color', 'rgba(0,0,0,.5)')
           var width = $(window).innerWidth();
           if(width < 990) {console.log(width);
             if($('ul.mobile-resource-dropdown').hasClass('collapsing-show')){
@@ -372,7 +372,7 @@ person on your team within minutes, NOT hours or days. </p>
         })
 
         $('#services-dropdown > a').click(function() {
-          $('#services-dropdown > a').css('color', 'rgba(0,0,0,.5)')
+          // $('#services-dropdown > a').css('color', 'rgba(0,0,0,.5)')
           var width = $(window).innerWidth();
           if(width < 990) {
             if($('ul.mobile-services-dropdown').hasClass('services-collapsing-show')){

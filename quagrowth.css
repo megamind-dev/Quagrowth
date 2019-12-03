@@ -78,11 +78,13 @@ margin-right:auto;
   z-index:2;
 }
 .masthead h1 {
-color:#252b33;
-font-size: 45px
+/* color:#252b33; */
+font-size: 45px;
+color: #f8f9fa;
 }
 .masthead h4 {
-color:#10366f;
+/* color:#10366f; */
+  color: #f8f9fa;
 }
 hr.green-line {
 border: 2px solid #5e9c6e;
@@ -119,7 +121,8 @@ margin-bottom:30px;
 }
 
 .navbar-dark .navbar-nav .nav-link {
-  color:black;
+  /* color:black; */
+  color: #f8f9fa;
   }
 
 .navbar-dark .navbar-nav .nav-link:hover {
@@ -273,10 +276,10 @@ ul.mobile-services-dropdown li a:hover {
 background: linear-gradient(0.25turn, #00a56b, #002e75);
 }
 .hero-bg {
-background-image: url("img/QGhome_hero2.png");
-background-size:cover;
-background-repeat:no-repeat;
-background-position: center center;
+  background-image: url("img/QGhome_hero2.png");
+  background-size:cover;
+  background-repeat:no-repeat;
+  background-position: center center;
 }
 
 .text-center {
@@ -286,26 +289,26 @@ background-position: center center;
   text-align: center;
 }
 .hero-pattern {
-z-index:1;
-display:block;
-overflow:hidden;
-margin-left: auto;
+  z-index:1;
+  display:block;
+  overflow:hidden;
+  margin-left: auto;
   margin-right: auto;
   width: 65%;
 }
 .hero-btn {
-width:30%;
-min-width:300px;
-margin-bottom: 70px;
-margin-top: 30px;
+  width:30%;
+  min-width:300px;
+  margin-bottom: 70px;
+  margin-top: 30px;
 }
 .col-12 text-center {
-z-index:2;
+  z-index:2;
 }
 
 .service-btn {
-width:50%;
-/* margin-left:0 !important; */
+  width:50%;
+  /* margin-left:0 !important; */
 }
 
 .col-title {
@@ -313,46 +316,46 @@ width:50%;
 }
 
 .form-group input {
-width:60%;
-margin:15px 0;
-padding:30px 15px;
+  width:60%;
+  margin:15px 0;
+  padding:30px 15px;
 }
 
 .footer-btn {
-width:60%;
-margin-left:0 !important;
-border-radius:5px;
+  width:60%;
+  margin-left:0 !important;
+  border-radius:5px;
 }
 
 .float {
-float:right;
+  float:right;
 }
 .white-text {
-color:#ffffff !important;
+  color:#ffffff !important;
 }
 
 .abt-cta-btn {
-padding:20px;
-width:30%;
-min-width:300px;
-margin-top:40px !important;
-margin-left:0 !important;
+  padding:20px;
+  width:30%;
+  min-width:300px;
+  margin-top:40px !important;
+  margin-left:0 !important;
 }
 
 .abt-vid {
-max-width:70%;
+  max-width:70%;
 }
 
 .main-content p {
-padding:20px 0;
-width:70%;
+  padding:20px 0;
+  width:70%;
 }
 
 hr.green-line-hero {
-border: 2px solid transparent;
-width:70px;
-margin-left: 0;
-margin-bottom:30px;
+  border: 2px solid transparent;
+  width:70px;
+  margin-left: 0;
+  margin-bottom:30px;
 }
 
 .footer-qg a{

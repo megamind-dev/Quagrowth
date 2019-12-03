@@ -299,19 +299,34 @@
   $(document).ready(function() {
         // Transition effect for navbar 
         $(window).scroll(function() {
+          var width = $(window).innerWidth();
           // checks if window is scrolled more than 500px, adds/removes solid class
           if($(this).scrollTop() > 50) { 
               $('.navbar').addClass('solid'); 
               $('.navbar').removeClass('navbar-dark');
               $('.navbar').addClass('navbar-light');
               $('.navbar .navbar-brand img').attr('src','img/QG_logo_.png');
+              
           } else {
               $('.navbar').removeClass('solid');
               $('.navbar').removeClass('navbar-light');
               $('.navbar').addClass('navbar-dark');
-//            $('.navbar .navbar-brand img').attr('src','img/QG_logo_wht.png');
+              if(width < 990) {
+                $('.navbar .navbar-brand img').attr('src','img/QG_logo_.png');
+              } else {
+                $('.navbar .navbar-brand img').attr('src','img/QG_logo_wht.png');
+              }
           }
         });
+
+        $(window).resize(function(){
+          var width = $(window).innerWidth();
+          if(width < 990 ) {
+            $('.navbar .navbar-brand img').attr('src','img/QG_logo_.png');
+          } else {
+            $('.navbar .navbar-brand img').attr('src','img/QG_logo_wht.png');
+          }
+        })
 
         $('#resource-dropdown').hover(function(){
           $('ul.resource-dropdown').css('visibility', 'visible');
@@ -332,7 +347,7 @@
         })
 
         $('#resource-dropdown > a').click(function() {
-          $('#resource-dropdown > a').css('color', 'rgba(0,0,0,.5)')
+          // $('#resource-dropdown > a').css('color', 'rgba(0,0,0,.5)')
           var width = $(window).innerWidth();
           if(width < 990) {console.log(width);
             if($('ul.mobile-resource-dropdown').hasClass('collapsing-show')){
@@ -353,7 +368,7 @@
         })
 
         $('#services-dropdown > a').click(function() {
-          $('#services-dropdown > a').css('color', 'rgba(0,0,0,.5)');
+          // $('#services-dropdown > a').css('color', 'rgba(0,0,0,.5)');
           var width = $(window).innerWidth();
           if(width < 990) {
             if($('ul.mobile-services-dropdown').hasClass('services-collapsing-show')){
