@@ -41,14 +41,37 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Blog</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Resources</a>
+          <li class="nav-item" id="resource-dropdown" >
+            <a class="nav-link"  href="javascript:void(0)" >Resources <i class="fas fa-angle-down dropdown-arrow"></i></a>
+            <div class="connection-part">
+            </div>
+            <ul class="resource-dropdown">
+              <li><a href="#">PARTNERS</a></li>
+              <li><a href="#">CASE STUDIOS</a></li>
+              <li><a href="#">EBOOKS</a></li>
+            </ul>
+            <ul class="mobile-resource-dropdown">
+              <li><a href="#">PARTNERS</a></li>
+              <li><a href="#">CASE STUDIOS</a></li>
+              <li><a href="#">EBOOKS</a></li>
+            </ul>
+          </li>
+          <li class="nav-item" id="services-dropdown" >
+            <a class="nav-link"  href="javascript:void(0)">Services <i class="fas fa-angle-down dropdown-arrow"></i></a>
+            <div class="connection-part">
+            </div>
+            <ul class="services-dropdown" >
+              <li><a href="#">EMAIL AUTOMATION</a></li>
+              <li><a href="#">CONVERSATION MARKETING</a></li>
+            </ul>
+            <ul class="mobile-services-dropdown">
+              <li><a href="#">EMAIL AUTOMATION</a></li>
+              <li><a href="#">CONVERSATION MARKETING</a></li>
+            </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="navbar-btn btn btn-lg btn-secondary" href="#">Contact Us</a>
+            <a class="navbar-btn btn btn-lg btn-secondary" href="#" id="contact">Contact Us</a>
+            <a class="nav-link" href="#" id="mobile-contact">Contact Us</a>
           </li>
         </ul>
       </div>
@@ -63,7 +86,7 @@
         <h1 class="font-weight-bold">Elite B2B Marketing Agency</h1>
         <hr class="green-line-hero">
         <h4>Close More Deals. Accelerate Lead Velocity.<br>Increase Quality Leads.</h4>
-        <p><br></p>
+        <!-- <p><br></p> -->
         <button class="hero-btn btn btn-lg btn-secondary btn-block" href="#">Start a Conversation<i class="fa fa-chevron-circle-right icon" aria-hidden="true"></i></button>
         
       </div>
@@ -260,7 +283,7 @@
   <!-- Copyright -->
   <div class="footer-qg footer-copyright py-3">
   <p>© 2019 QuaGrowth. All rights reserved. <br>
-<a href="about.html">About</a>    |    <a href="#">Blog</a>    |    <a href="#">Resources</a>    |    <a href="#">Services</a>    |    <a href="#">Privacy</a> </p>
+<a href="about.html" class="footer-link">About</a>    |    <a href="#" class="footer-link">Blog</a>    |    <a href="#" class="footer-link">Resources</a>    |    <a href="#" class="footer-link">Services</a>    |    <a href="#" class="footer-link">Privacy</a> </p>
   </div>
   <!-- Copyright -->
 
@@ -289,6 +312,66 @@
 //            $('.navbar .navbar-brand img').attr('src','img/QG_logo_wht.png');
           }
         });
+
+        $('#resource-dropdown').hover(function(){
+          $('ul.resource-dropdown').css('visibility', 'visible');
+          $('ul.resource-dropdown').css('opacity', '1');
+        })
+
+        $('#resource-dropdown').on('mouseleave', function(){
+          $('ul.resource-dropdown').css('visibility', 'hidden');
+          $('ul.resource-dropdown').css('opacity', '0');
+        })
+        $('#services-dropdown').hover(function() {
+          $('ul.services-dropdown').css('visibility', 'visible');
+          $('ul.services-dropdown').css('opacity', '1');
+        })
+        $('#services-dropdown').on('mouseleave', function() {
+          $('ul.services-dropdown').css('visibility', 'hidden');
+          $('ul.services-dropdown').css('opacity', '0');
+        })
+
+        $('#resource-dropdown > a').click(function() {
+          $('#resource-dropdown > a').css('color', 'rgba(0,0,0,.5)')
+          var width = $(window).innerWidth();
+          if(width < 990) {console.log(width);
+            if($('ul.mobile-resource-dropdown').hasClass('collapsing-show')){
+              $('ul.mobile-resource-dropdown').removeClass('collapsing-show');
+            } else {
+              $('ul.mobile-resource-dropdown').addClass('collapsing-show');
+            }
+          }
+
+          if($('#resource-dropdown > a > i').hasClass('fa-angle-down')) {
+            $('#resource-dropdown > a > i').removeClass('fa-angle-down');
+            $('#resource-dropdown > a > i').addClass('fa-angle-up')
+          } else {
+            $('#resource-dropdown > a > i').removeClass('fa-angle-up');
+            $('#resource-dropdown > a > i').addClass('fa-angle-down');
+          }
+
+        })
+
+        $('#services-dropdown > a').click(function() {
+          $('#services-dropdown > a').css('color', 'rgba(0,0,0,.5)');
+          var width = $(window).innerWidth();
+          if(width < 990) {
+            if($('ul.mobile-services-dropdown').hasClass('services-collapsing-show')){
+              $('ul.mobile-services-dropdown').removeClass('services-collapsing-show');
+            } else {
+              $('ul.mobile-services-dropdown').addClass('services-collapsing-show');
+            }
+          }
+
+          if($('#services-dropdown > a > i').hasClass('fa-angle-down')) {
+            $('#services-dropdown > a > i').removeClass('fa-angle-down');
+            $('#services-dropdown > a > i').addClass('fa-angle-up')
+          } else {
+            $('#services-dropdown > a > i').removeClass('fa-angle-up');
+            $('#services-dropdown > a > i').addClass('fa-angle-down');
+          }
+        })
+        
 });
 </script>
 
