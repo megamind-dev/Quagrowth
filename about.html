@@ -23,7 +23,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="index.html"><img  src="img/QG_logo_.png" alt="QuaGrowth"></a>
+      <a class="navbar-brand" href="index.html"><img  src="img/QG_logo_wht.png" alt="QuaGrowth"></a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -36,7 +36,7 @@
             <a class="nav-link" href="#">Blog</a>
           </li>
           <li class="nav-item" id="resource-dropdown">
-            <a class="nav-link"  href="javascript:void(0)">Resources <i class="fas fa-angle-down dropdown-arrow"></i></a>
+            <a class="nav-link" >Resources <i class="fas fa-angle-down dropdown-arrow"></i></a>
             <div class="connection-part">
             </div>
             <ul class="resource-dropdown">
@@ -51,7 +51,7 @@
             </ul>
           </li>
           <li class="nav-item" id="services-dropdown" >
-            <a class="nav-link"  href="javascript:void(0)">Services <i class="fas fa-angle-down dropdown-arrow"></i></a>
+            <a class="nav-link" >Services <i class="fas fa-angle-down dropdown-arrow"></i></a>
             <div class="connection-part">
             </div>
             <ul class="services-dropdown" >
@@ -65,6 +65,7 @@
           </li>
           <li class="nav-item">
             <a class="navbar-btn btn btn-lg btn-secondary" href="#" id="contact">Contact Us</a>
+            <!-- navbar-btn btn btn-lg btn-secondary -->
             <a class="nav-link" href="#" id="mobile-contact">Contact Us</a>
           </li>
         </ul>
@@ -318,23 +319,68 @@ person on your team within minutes, NOT hours or days. </p>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script>
     $(document).ready(function() {
-      $('.navbar-dark .navbar-nav .nav-link').css('color', 'rgba(0,0,0,.5)');
-      $(window).scroll(function() {
+     // Transition effect for navbar 
+     $('#contact').css('display', 'none');
+        $('#mobile-contact').css('display', 'block');
+        var width = $(window).innerWidth();
+        if(width < 990) {
+          $('.navbar .navbar-brand img').attr('src','img/QG_logo_.png');
+        }
+        $(window).scroll(function() {
+          var width = $(window).innerWidth();
           // checks if window is scrolled more than 500px, adds/removes solid class
           if($(this).scrollTop() > 50) { 
               $('.navbar').addClass('solid'); 
               $('.navbar').removeClass('navbar-dark');
               $('.navbar').addClass('navbar-light');
-              // $('.navbar .navbar-brand img').attr('src','img/QG_logo_.png');
+              $('.navbar .navbar-brand img').attr('src','img/QG_logo_.png');
+              if(width > 990) {
+                $('#contact').css('display', 'block');
+                $('#mobile-contact').css('display', 'none');
+              }
+
+              
           } else {
               $('.navbar').removeClass('solid');
               $('.navbar').removeClass('navbar-light');
               $('.navbar').addClass('navbar-dark');
-//            $('.navbar .navbar-brand img').attr('src','img/QG_logo_wht.png');
+              if(width < 990) {
+                $('.navbar .navbar-brand img').attr('src','img/QG_logo_.png');
+                $('#contact').css('display', 'none');
+                $('#mobile-contact').css('display', 'block');
+              } else {
+                $('.navbar .navbar-brand img').attr('src','img/QG_logo_wht.png');
+                $('#contact').css('display', 'none');
+                $('#mobile-contact').css('display', 'block');
+              }
+              
           }
         });
 
-      $('#resource-dropdown').hover(function(){
+        $(window).resize(function(){
+          var width = $(window).innerWidth();
+          if(width < 950 ) {
+            $('.navbar .navbar-brand img').attr('src','img/QG_logo_.png');
+            $('.navbar').removeClass('navbar-dark');
+            $('.navbar').addClass('navbar-light');
+            // $('#resource-dropdown > a').css('color', 'rgba(0,0,0,.5)');
+            // $('#services-dropdown > a').css('color', 'rgba(0,0,0,.5)');
+          } else {
+            if($(this).scrollTop() > 50){
+              $('.navbar .navbar-brand img').attr('src','img/QG_logo_.png');
+              $('.navbar').removeClass('navbar-dark');
+              $('.navbar').addClass('navbar-light');
+            } else {
+            $('.navbar .navbar-brand img').attr('src','img/QG_logo_wht.png');
+            $('.navbar').addClass('navbar-dark');
+            $('.navbar').removeClass('navbar-light');
+            }
+            // $('#resource-dropdown > a').css('color', '#f8f9fa');
+            // $('#services-dropdown > a').css('color', '#f8f9fa');
+          }
+        })
+
+        $('#resource-dropdown').hover(function(){
           $('ul.resource-dropdown').css('visibility', 'visible');
           $('ul.resource-dropdown').css('opacity', '1');
         })
@@ -353,15 +399,19 @@ person on your team within minutes, NOT hours or days. </p>
         })
 
         $('#resource-dropdown > a').click(function() {
-          // $('#resource-dropdown > a').css('color', 'rgba(0,0,0,.5)')
+
+         
           var width = $(window).innerWidth();
-          if(width < 990) {console.log(width);
+          if(width < 990) {
+            // $('#resource-dropdown > a').css('color', 'rgba(0,0,0,.5)');
+        
             if($('ul.mobile-resource-dropdown').hasClass('collapsing-show')){
               $('ul.mobile-resource-dropdown').removeClass('collapsing-show');
             } else {
               $('ul.mobile-resource-dropdown').addClass('collapsing-show');
             }
           }
+
           if($('#resource-dropdown > a > i').hasClass('fa-angle-down')) {
             $('#resource-dropdown > a > i').removeClass('fa-angle-down');
             $('#resource-dropdown > a > i').addClass('fa-angle-up')
@@ -369,18 +419,21 @@ person on your team within minutes, NOT hours or days. </p>
             $('#resource-dropdown > a > i').removeClass('fa-angle-up');
             $('#resource-dropdown > a > i').addClass('fa-angle-down');
           }
+
         })
 
         $('#services-dropdown > a').click(function() {
-          // $('#services-dropdown > a').css('color', 'rgba(0,0,0,.5)')
+          
           var width = $(window).innerWidth();
           if(width < 990) {
+            // $('#services-dropdown > a').css('color', 'rgba(0,0,0,.5)');
             if($('ul.mobile-services-dropdown').hasClass('services-collapsing-show')){
               $('ul.mobile-services-dropdown').removeClass('services-collapsing-show');
             } else {
               $('ul.mobile-services-dropdown').addClass('services-collapsing-show');
             }
           }
+
           if($('#services-dropdown > a > i').hasClass('fa-angle-down')) {
             $('#services-dropdown > a > i').removeClass('fa-angle-down');
             $('#services-dropdown > a > i').addClass('fa-angle-up')
@@ -389,6 +442,7 @@ person on your team within minutes, NOT hours or days. </p>
             $('#services-dropdown > a > i').addClass('fa-angle-down');
           }
         })
+        
     })
   </script>
 </body>
